@@ -12,7 +12,7 @@ prompt_status() {
   local symbols
   symbols=()
   symbols+="%(?:%{$fg_bold[green]%}➜ :%{$fg_bold[red]%}➜ )"
-  [[ $UID -eq 0 ]] && symbols+="%{%F{yellow}%}$LIGHTNING" 
+  [[ $UID -eq 0 ]] && symbols+="%{%F{yellow}%}$LIGHTNING " 
   [[ -n "$symbols" ]] && echo $symbols
 }
 
@@ -21,7 +21,7 @@ prompt_dir() {
 }
 
 prompt_context() {
-    echo "%{$fg[cyan]%}%c%{$reset_color%}"
+    echo "%{$fg[cyan]%}$USER%{$reset_color%}"
 }
 
 NEWLINE=$'\n'
@@ -30,7 +30,7 @@ FIRSTLINE() {
 }
 
 SECONDLINE() {
-    echo "%{$fg_bold[cyan]%}$LAMDA%{$reset_color%}"
+    echo "%{$fg_bold[yellow]%}$LAMDA%{$reset_color%}"
 }
 
 PROMPT="$(FIRSTLINE)$NEWLINE$(SECONDLINE) "
